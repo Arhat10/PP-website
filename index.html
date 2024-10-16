@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
+</head>
+
+
+<body>
+    <!DOCTYPE html>
+<!--Code by Divinector (www.divinectorweb.com)-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Create responsive Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">    
+</head> 
+<body>
+    <header>
+    <div class="wrapper">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt7ocNuUgQqYYlmgHTEZIhx5aXBPfybSqneA&s" alt="">
+        </div>
+<ul class="nav-area">
+<li><a href="#">Home</a></li>
+<li><a href="#about">About GEN AI</a></li>
+<li><a href="#functions">Functions of GEN AI</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#reports">Report</a></li>
+</ul>
+</div>
+    <div class="welcome-text">
+        <h1>GEN AI</h1>
+<a href="#about">About GEN AI</a>
+<a href="#functions">Functions of GEN AI</a>
+    </div>
+</header>
+
+<style>
+    .about {
+        display: flex;
+        align-items: center;
+        padding: 50px 0;
+        overflow: hidden;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: all 1s ease-out;
+    }
+    .about.animate {
+        transform: translateX(0);
+        opacity: 1;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const aboutSection = document.querySelector('.about');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    aboutSection.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(aboutSection);
+    });
+</script>
+
+
+<section class="about" id="about">
+    <div class = "image">
+    </div>  
+    <div class = "content">
+        <h2>About GEN AI</h2>
+        <span></span>
+        <p>Lorem ipsum dolor, sit amet co nsectetur adipisicing elit. Nobis aspernatur voluptas inventore ab voluptates nostrum minus illo laborum harum laudantium earum ut, temporibus fugiat sequi explicabo facilis unde quos corporis!</p>
+        <ul class = "links">
+            <li><a href = "#functions">Functions Of GEN AI</a></li>
+            <div class = "vertical-line"></div>
+            <li><a href = "#projects">Projects regarding GEN AI</a></li>
+        </ul>   
+    </div>
+</section> 
+
+
+
+
+<section class="functions" id="functions">
+    
+</section>
+
+<section class="detials">
+</section>
+
+<section class="detail">
+</section>
+
+<section class="projects" id="projects">
+</section>      
+
+<section class="reports" id="reports">
+</section>
+
+
+
+<section class="quiz">
+<div>
+    <body onload="NextQuestion(0)">
+    <main>
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+
+            <div class="modal-content-container">
+
+                <h1>Congratulations, Quiz Completed.</h1>
+
+                <div class="grade-details">
+                    <p>Attempts : 10</p>
+                    <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                    <p>Right Answers : <span id="right-answers"></span></p>
+                    <p>Grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Continue</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="game-quiz-container">
+
+            <div class="game-details-container">
+                <h1>Score : <span id="player-score"></span> / 10</h1>
+                <h1> Question : <span id="question-number"></span> / 10</h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+
+               <div class="modal-container" id="option-modal">
+
+                    <div class="modal-content-container">
+                         <h1>Please Pick An Option</h1>
+
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Continue</button>
+                        </div>
+
+                    </div>
+
+               </div>
+
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Next Question</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<script>
+    const questions = [
+    {
+        question: "What Is Gen AI ?",
+        optionA: "10 days",
+        optionB: "14 days",
+        optionC: "AI that could do anything",
+        optionD: "AI that can produce various types of content",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "What is Image generation ?",
+        optionA: "10 players",
+        optionB: "Could generate image on prompt",
+        optionC: "9 players",
+        optionD: "12 players",
+        correctOption: "optionB"    
+    },
+
+    {
+        question: "What is text/speech Generation ?",
+        optionA: "Donald Trump",
+        optionB: "Barack Obama",
+        optionC: "Abraham Lincoln",
+        optionD: "Can generate and recognize on what we say",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "What Is face Recognition ?",
+        optionA: "January",
+        optionB: "December",
+        optionC: "June",
+        optionD: "july",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "What is the functions of GEN AI ?",
+        optionA: "30 hours",
+        optionB: "38 hours",
+        optionC: "48 hours",
+        optionD: "24 hours",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "What is GEN AI also called as ?",
+        optionA: "Generative AI",
+        optionB: "Geography AI",
+        optionC: "Google AI",
+        optionD: "Graphics AI",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "What is one of the use of GEN AI",
+        optionA: "Oceania",
+        optionB: "Antarctica",
+        optionC: "Automating solutions using prompt",
+        optionD: "North America",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Could Gen AI make a product itself ?",
+        optionA: "Yes! If a prompt is given",
+        optionB: "Yes! Could generate without prompt",
+        optionC: "Maybe",
+        optionD: "No",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "Which of these numbers is an odd number ?",
+        optionA: "Ten",
+        optionB: "Twelve",
+        optionC: "Eight",
+        optionD: "Eleven",
+        correctOption: "optionD"
+    },
+
+    {
+        question: `"You Can't see me" is a popular saying by`,
+        optionA: "Eminem",
+        optionB: "Bill Gates",
+        optionC: "Chris Brown",
+        optionD: "John Cena",
+        correctOption: "optionD"
+    },
+
+]
+
+
+let shuffledQuestions = [] 
+function handleQuestions() {
+    while (shuffledQuestions.length <= 9) {
+        const random = questions[Math.floor(Math.random() * questions.length)]
+        if (!shuffledQuestions.includes(random)) {
+            shuffledQuestions.push(random)
+        }
+    }
+}
+
+
+let questionNumber = 1 
+let playerScore = 0 
+let wrongAttempt = 0 
+let indexNumber = 0 
+
+function NextQuestion(index) {
+    handleQuestions()
+    const currentQuestion = shuffledQuestions[index]
+    document.getElementById("question-number").innerHTML = questionNumber
+    document.getElementById("player-score").innerHTML = playerScore
+    document.getElementById("display-question").innerHTML = currentQuestion.question;
+    document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+    document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+    document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+    document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+
+}
+
+
+function checkForAnswer() {
+    const currentQuestion = shuffledQuestions[indexNumber] 
+    const currentQuestionAnswer = currentQuestion.correctOption 
+    const options = document.getElementsByName("option"); 
+    let correctOption = null
+
+    options.forEach((option) => {
+        if (option.value === currentQuestionAnswer) {
+            correctOption = option.labels[0].id
+        }
+    })
+
+    if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+        document.getElementById('option-modal').style.display = "flex"
+    }
+
+    options.forEach((option) => {
+        if (option.checked === true && option.value === currentQuestionAnswer) {
+            document.getElementById(correctOption).style.backgroundColor = "green"
+            playerScore++ 
+            indexNumber++ 
+            setTimeout(() => {
+                questionNumber++
+            }, 1000)
+        }
+
+        else if (option.checked && option.value !== currentQuestionAnswer) {
+            const wrongLabelId = option.labels[0].id
+            document.getElementById(wrongLabelId).style.backgroundColor = "red"
+            document.getElementById(correctOption).style.backgroundColor = "green"
+            wrongAttempt++ //adds 1 to wrong attempts 
+            indexNumber++
+            //set to delay question number till when next question loads
+            setTimeout(() => {
+                questionNumber++
+            }, 1000)
+        }
+    })
+}
+
+
+
+function handleNextQuestion() {
+    checkForAnswer() 
+    unCheckRadioButtons()
+   
+    setTimeout(() => {
+        if (indexNumber <= 9) {
+            NextQuestion(indexNumber)
+        }
+        else {
+            handleEndGame()
+        }
+        resetOptionBackground()
+    }, 1000);
+}
+
+function resetOptionBackground() {
+    const options = document.getElementsByName("option");
+    options.forEach((option) => {
+        document.getElementById(option.labels[0].id).style.backgroundColor = ""
+    })
+}
+
+function unCheckRadioButtons() {
+    const options = document.getElementsByName("option");
+    for (let i = 0; i < options.length; i++) {
+        options[i].checked = false;
+    }
+}
+
+function handleEndGame() {
+    let remark = null
+    let remarkColor = null
+
+    if (playerScore <= 3) {
+        remark = "Bad Grades, Keep Practicing."
+        remarkColor = "red"
+    }
+    else if (playerScore >= 4 && playerScore < 7) {
+        remark = "Average Grades, You can do better."
+        remarkColor = "orange"
+    }
+    else if (playerScore >= 7) {
+        remark = "Excellent, Keep the good work going."
+        remarkColor = "green"
+    }
+    const playerGrade = (playerScore / 10) * 100
+
+    //data to display to score board
+    document.getElementById('remarks').innerHTML = remark
+    document.getElementById('remarks').style.color = remarkColor
+    document.getElementById('grade-percentage').innerHTML = playerGrade
+    document.getElementById('wrong-answers').innerHTML = wrongAttempt
+    document.getElementById('right-answers').innerHTML = playerScore
+    document.getElementById('score-modal').style.display = "flex"
+
+}
+
+function closeScoreModal() {
+    questionNumber = 1
+    playerScore = 0
+    wrongAttempt = 0
+    indexNumber = 0
+    shuffledQuestions = []
+    NextQuestion(indexNumber)
+    document.getElementById('score-modal').style.display = "none"
+}
+
+
+function closeOptionModal() {
+    document.getElementById('option-modal').style.display = "none"
+}
+</script>
+</div>
+
+</body>
+</html>
+
+</body>
+</html>
